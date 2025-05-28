@@ -65,7 +65,7 @@ const NavBar = () => {
         </motion.div>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex space-x-8">
+        <div className="hidden lg:flex space-x-8 font-bold">
           {links.map((item, index) => {
             const hash = `#${item}`;
             const isActive = activeSection === hash;
@@ -85,7 +85,7 @@ const NavBar = () => {
                 >
                   {item}
                   <span
-                    className={`absolute bottom-0 left-0 block w-full h-[2px] bg-main transition-transform duration-300 origin-left ${
+                    className={`absolute bottom-0 left-0 block w-full h-[2px] bg-main transition-transform duration-500 origin-left ${
                       isActive
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"

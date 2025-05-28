@@ -10,19 +10,7 @@ import ThreeSphereOfBoxes from "./3DModels/ThreeSphereOfBoxes";
 const Hero = () => {
   return (
     <section className="relative w-full h-screen -mt-[15vh] overflow-hidden flex items-center  px-4 md:px-12">
-      {/* Glowing Black Hole */}
-      {/* <div className="absolute inset-0 flex justify-center items-center pointer-events-none z-0">
-        <div
-          className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full border-[20px] md:border-[30px] border-main opacity-80 blur-xl"
-          style={{
-            boxShadow:
-              "0 0 60px 30px rgba(216,70,255,0.5), 0 0 120px 60px rgba(216,70,255,0.2)",
-            background:
-              "radial-gradient(181.99deg, #A855F7 -14.49%, #8300FF 113.98%)",
-          }}
-        ></div>
-      </div> */}
-
+     
       {/* Text Block with motion */}
       <motion.div
         className="relative z-10 w-full max-w-4xl mt-5"
@@ -62,7 +50,8 @@ const Hero = () => {
         bg-[linear-gradient(181.99deg,rgba(168,85,247,0.4)_0%,rgba(131,0,255,0.2)_100%)]
         shadow-[0_0_12px_rgba(168,85,247,0.7)]
         hover:shadow-[0_0_24px_rgba(168,85,247,1)]
-        transition-all duration-300 ease-in-out"
+        transition-all duration-300 ease-in-out
+        animate-bounce"
           >
             Who’s Behind
           </button>
