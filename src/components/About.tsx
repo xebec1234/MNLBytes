@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 const About = () => {
-  const ref = useRef(null);
+  const ref = React.useRef(null);
   const isInView = useInView(ref, { margin: "-30% 0px -70% 0px" }); // roughly 30% visible
   const controls = useAnimation();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isInView) {
       controls.start({
         opacity: 1,
@@ -19,8 +19,8 @@ const About = () => {
     } else {
       controls.start({
         opacity: 0,
-        y: -50,
-        scaleX: 0.8,
+        y: -80,
+        scaleX: 0.3,
         transition: { duration: 0.4, ease: "easeIn" },
       });
     }
@@ -36,18 +36,18 @@ const About = () => {
         style={{ originX: 0.5 }}
       >
         {/* First container */}
-        <div className="h-1/4 rounded-2xl p-6 shadow-soft bg-container">
-          <h2 className="text-main text-xl font-semibold">First Container</h2>
-          <p className="text-sm mt-2 text-gray-600 dark:text-gray-300">
-            This is a smaller, full-width container.
+        <div className="h-1/4 rounded-2xl p-8 md:p-10 shadow-soft bg-container">
+          <h2 className="text-main text-[28px] md:text-6xl font-bold">Manuel Jose Pera</h2>
+          <p className="text-sm md:text-xl mt-2 text-gray-600 dark:text-gray-300">
+            Aspiring Software Developer
           </p>
         </div>
 
         {/* Second + Third containers */}
         <div className="flex-1 flex gap-6">
           <div className="flex-1 rounded-2xl p-6 shadow-soft bg-container-2">
-            <h2 className="text-main text-xl font-semibold">
-              Second Container
+            <h2 className="text-main text-4xl font-bold">
+              Process Automation Experience
             </h2>
             <p className="text-sm mt-2 text-gray-600 dark:text-gray-300">
               Left side content.
@@ -55,7 +55,7 @@ const About = () => {
           </div>
 
           <div className="flex-1 rounded-2xl p-6 shadow-soft bg-container-2">
-            <h2 className="text-main text-xl font-semibold">Third Container</h2>
+            <h2 className="text-main text-4xl font-bold">Web & App Development</h2>
             <p className="text-sm mt-2 text-gray-600 dark:text-gray-300">
               Right side content.
             </p>

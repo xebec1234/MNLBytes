@@ -34,7 +34,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="sticky top-0 left-0 right-0 w-full h-[15vh] z-20 shadow-md bg-transparent">
+    <nav className="sticky top-0 left-0 right-0 w-full h-[15vh] z-50 shadow-md bg-transparent">
       <div className="relative flex items-center justify-between h-full px-6 lg:px-12">
         {/* Hamburger */}
         <motion.div
