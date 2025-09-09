@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/navigation/NavBar";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -13,6 +12,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "mnlbytes",
   description: "Manuel's Portfolio",
+  icons: {
+    icon: "/favicon.svg", 
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable}`}>
-        <NavBar />
         <main>{children}</main>
       </body>
     </html>

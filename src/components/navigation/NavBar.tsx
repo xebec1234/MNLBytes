@@ -1,154 +1,46 @@
 "use client";
 
+import NavLink from "./NavLink";
 import Link from "next/link";
-import React from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-const NavBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [activeSection, setActiveSection] = React.useState("#Go");
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  React.useEffect(() => {
-    const handleHashChange = () => {
-      setActiveSection(window.location.hash || "#Go");
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    handleHashChange();
-
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
-
-  const links = ["Go", "About", "Projects", "Contact"];
-
-  // Animation variants
-  const navItemVariant = {
-    hidden: { opacity: 0, y: -10 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.1, duration: 0.5 },
-    }),
-  };
-
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="sticky top-0 left-0 right-0 w-full h-[15vh] z-50 shadow-md bg-transparent">
-      <div className="relative flex items-center justify-between h-full px-6 lg:px-12">
-        {/* Hamburger */}
-        <motion.div
-          className="lg:hidden flex flex-col space-y-1 cursor-pointer z-30"
-          onClick={toggleMenu}
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="w-6 h-1 bg-white"></div>
-          <div className="w-6 h-1 bg-white"></div>
-          <div className="w-6 h-1 bg-white"></div>
-        </motion.div>
+    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%] bg-white/30 backdrop-blur-md shadow-lg rounded-2xl px-8 py-3 z-50">
+      <div className="flex items-center justify-between">
+        <Link href="/" className="text-xl font-bold text-violet-700">MNLBytes</Link>
 
-        {/* Title */}
-        <motion.div
-          className="flex-1 flex justify-center lg:justify-start"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Link
-            href="/"
-            className="text-2xl font-bold text-white"
-          >
-            MNLBytes
-          </Link>
-        </motion.div>
-
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex space-x-8 font-bold">
-          {links.map((item, index) => {
-            const hash = `#${item}`;
-            const isActive = activeSection === hash;
-            return (
-              <motion.div
-                key={item}
-                custom={index}
-                initial="hidden"
-                animate="visible"
-                variants={navItemVariant}
-              >
-                <Link
-                  href={hash}
-                  className={`transition duration-300 relative group text-xl ${
-                    isActive ? "text-main" : "text-white hover:text-main"
-                  }`}
-                >
-                  {item}
-                  <span
-                    className={`absolute bottom-0 left-0 block w-full h-[2px] bg-main transition-transform duration-500 origin-left ${
-                      isActive
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100"
-                    }`}
-                  ></span>
-                </Link>
-              </motion.div>
-            );
-          })}
+        <div className="hidden md:flex space-x-10 text-gray-800 font-medium">
+          <NavLink href="/">Go</NavLink>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/portfolio">Project</NavLink>
+          <NavLink href="/certificates">Certificates</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </div>
+
+        <button
+          className="md:hidden text-gray-800"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div
-          className="lg:hidden fixed w-screen top-[100px] bg-transparent bg-opacity-80 backdrop-blur-md py-4 flex justify-center items-center z-40"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          <motion.div
-            className="bg-white p-6 shadow-lg w-full space-y-6"
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <ul className="space-y-4 text-center">
-              {links.map((item, index) => {
-                const hash = `#${item}`;
-                const isActive = activeSection === hash;
-                return (
-                  <motion.li
-                    key={item}
-                    className="relative group"
-                    custom={index}
-                    initial="hidden"
-                    animate="visible"
-                    variants={navItemVariant}
-                  >
-                    <Link
-                      href={hash}
-                      className={`transition duration-300 ${
-                        isActive ? "text-main" : "text-black hover:text-main"
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item}
-                      <span
-                        className={`absolute bottom-0 left-0 block w-full h-[2px] bg-main transition-transform duration-300 origin-left ${
-                          isActive
-                            ? "scale-x-100"
-                            : "scale-x-0 group-hover:scale-x-100"
-                        }`}
-                      ></span>
-                    </Link>
-                  </motion.li>
-                );
-              })}
-            </ul>
-          </motion.div>
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
+          isOpen ? "max-h-60 opacity-100 mt-4" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="flex flex-col space-y-4 font-medium">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/portfolio">Project</NavLink>
+          <NavLink href="/certificates">Certificates</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </div>
-      )}
+      </div>
     </nav>
   );
-};
-
-export default NavBar;
+}
