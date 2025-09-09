@@ -14,7 +14,7 @@ export default function Navbar() {
           MNLBytes
         </Link>
 
-        <div className="hidden md:flex space-x-10 text-gray-800 font-medium">
+        <div className="hidden md:flex space-x-10 font-medium">
           <NavLink href="#go">Go</NavLink>
           <NavLink href="#about">About</NavLink>
           <NavLink href="/portfolio">Project</NavLink>
@@ -23,7 +23,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden text-gray-800"
+          className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}

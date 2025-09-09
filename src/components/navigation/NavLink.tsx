@@ -49,7 +49,7 @@ export default function NavLink({
       href={href}
       className={`
         relative pb-1 transition-colors
-        ${isActive ? "text-violet-700 after:w-full" : "text-gray-800 hover:text-violet-600"}
+        ${isActive ? "text-violet-700 after:w-full" : "hover:text-violet-600"}
         after:absolute after:left-0 after:bottom-0
         after:h-[2px] after:bg-gradient-to-r after:from-violet-500 after:to-violet-700
         after:transition-all after:duration-300
