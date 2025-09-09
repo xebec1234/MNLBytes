@@ -40,4 +40,24 @@ body {
   }
 }
 
+@keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .scrolling-wrapper {
+          display: inline-flex;
+          animation: scroll 15s linear infinite;
+        }
+        @media (min-width: 768px) {
+          /* Disable animation on medium+ devices */
+          .scrolling-wrapper {
+            animation: none;
+            transform: none;
+          }
+        }
+
 

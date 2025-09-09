@@ -11,12 +11,12 @@ function Hero() {
           alt="Hero Background"
           fill
           priority
-          className="object-cover opacity-30"
+          className="object-cover opacity-30 sm:object-center object-right scale-205 sm:scale-100 transition-all duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
       </div>
 
-      <div className="absolute right-25 top-2/3 transform -translate-y-11">
+      <div className="absolute -right-14 bottom-2 sm:right-25 sm:top-2/3 sm:-translate-y-11">
         <Image
           src="/gear.svg"
           alt="Like Icon"
@@ -26,7 +26,7 @@ function Hero() {
         />
       </div>
 
-      <div className="absolute left-30 top-0.5 transform -translate-y-11">
+      <div className="absolute -left-10 top-2 sm:left-30 sm:top-0.5 -translate-y-11">
         <Image
           src="/logic.svg"
           alt="Like Icon"
@@ -36,7 +36,7 @@ function Hero() {
         />
       </div>
 
-      <div className="relative flex gap-8 mt-15">
+      <div className="relative gap-8 mt-15 hidden sm:flex">
         <div className="w-37 h-10 flex items-center justify-center rounded-2xl bg-white/30 backdrop-blur-md shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)]">
           <p className="text-lg font-medium text-gray-800">Automation</p>
         </div>
@@ -49,19 +49,19 @@ function Hero() {
           <p className="text-lg font-medium text-gray-800">Security</p>
         </div>
       </div>
-      <h1 className="relative text-2xl sm:text-[3.5vw] font-bold leading-[1.3]">
+      <h1 className="relative text-[35px] sm:text-[3.5vw] font-bold leading-[1.3]">
         <span className="bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
           Developing{" "}
         </span>
         Impactful{" "}
         <span className="bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
-          Solutions 
+          Solutions
         </span>{" "}
-        Through 
+        Through
         <br />
-         Purposeful Coding and Doing
+        Purposeful Coding and Doing
       </h1>
-      <p className="text-5xl sm:text-xl mt-4 max-w-prose leading-snug">
+      <p className="hidden sm:block text-[15px] sm:text-[20px] sm:mt-4 max-w-prose leading-snug">
         I&#39;m an aspiring software developer with experience in building web
         and <br />
         desktop applications, and automating workload processes.
