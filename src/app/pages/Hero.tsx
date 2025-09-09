@@ -5,7 +5,7 @@ import Link from "next/link";
 function Hero() {
   return (
     <div>
-    <section className="relative flex flex-col gap-1.5 items-center justify-center min-h-screen text-center px-4 overflow-hidden">
+    <section id="go" className="relative flex flex-col gap-1.5 items-center justify-center min-h-screen text-center px-4 overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src="/hero-bg.svg"

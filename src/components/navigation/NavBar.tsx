@@ -10,10 +10,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%] bg-white/30 backdrop-blur-md shadow-lg rounded-2xl px-8 py-3 z-50">
       <div className="flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-violet-700">MNLBytes</Link>
+        <Link href="/" className="text-xl font-bold text-violet-700">
+          MNLBytes
+        </Link>
 
         <div className="hidden md:flex space-x-10 text-gray-800 font-medium">
-          <NavLink href="/">Go</NavLink>
+          <NavLink href="#go">Go</NavLink>
           <NavLink href="#about">About</NavLink>
           <NavLink href="/portfolio">Project</NavLink>
           <NavLink href="/certificates">Certificates</NavLink>
@@ -34,7 +36,7 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col space-y-4 font-medium">
-          <NavLink href="/">Home</NavLink>
+          <NavLink href="#go">Home</NavLink>
           <NavLink href="/about">About</NavLink>
           <NavLink href="/portfolio">Project</NavLink>
           <NavLink href="/certificates">Certificates</NavLink>
