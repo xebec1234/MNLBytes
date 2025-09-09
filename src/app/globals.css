@@ -20,6 +20,7 @@ html,
 body {
   max-width: 99vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {

@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "mnlbytes",
+  title: "MNLBytes",
   description: "Manuel's Portfolio",
   icons: {
     icon: "/favicon.svg", 

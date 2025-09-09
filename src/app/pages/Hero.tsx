@@ -4,6 +4,7 @@ import Link from "next/link";
 
 function Hero() {
   return (
+    <div>
     <section className="relative flex flex-col gap-1.5 items-center justify-center min-h-screen text-center px-4 overflow-hidden">
       <div className="absolute inset-0">
         <Image
@@ -80,6 +81,49 @@ function Hero() {
         </button>
       </Link>
     </section>
+
+     <section id="about" className="h-screen w-full flex justify-center px-4 overflow-hidden">
+      <div className="relative w-[80vw] h-[calc(100vh-7rem)] mt-28 bg-white/30 backdrop-blur-md rounded-t-3xl shadow-lg p-8 flex flex-col">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-800">Manuel Jose Pera</h1>
+          <p className="text-lg text-gray-600">
+            Bachelor of Science in Computer Science
+          </p>
+        </div>
+
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            className="p-6 rounded-t-2xl bg-white/40 backdrop-blur-md 
+            shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)] flex flex-col h-[calc(100vh-7rem)]"
+          >
+            <h2 className="text-xl font-semibold text-gray-800">Automation</h2>
+            <p className="mt-2 text-gray-700 leading-relaxed">
+              I’m an aspiring software developer with experience in building
+              web, desktop applications, and automating workload processes.
+            </p>
+          </div>
+
+          <div
+            className="p-6 rounded-t-2xl bg-white/40 backdrop-blur-md 
+            shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)] flex flex-col h-[calc(100vh-7rem)]"
+          >
+            <h2 className="text-xl font-semibold text-gray-800">Software Development</h2>
+            <ul className="mt-2 list-disc list-inside text-gray-700 space-y-1">
+              <li>Application Development</li>
+              <li>Automation & Workflow Optimization</li>
+              <li>Web Development</li>
+              <li>Database Management</li>
+              <li>Cloud & Deployment</li>
+              <li>Version Control</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" className="h-screen">
+        <h1>contacts</h1>
+    </section>
+    </div>
   );
 }
 

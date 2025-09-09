@@ -14,10 +14,10 @@ export default function Navbar() {
 
         <div className="hidden md:flex space-x-10 text-gray-800 font-medium">
           <NavLink href="/">Go</NavLink>
-          <NavLink href="/about">About</NavLink>
+          <NavLink href="#about">About</NavLink>
           <NavLink href="/portfolio">Project</NavLink>
           <NavLink href="/certificates">Certificates</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
+          <NavLink href="#contact">Contact</NavLink>
         </div>
 
         <button
