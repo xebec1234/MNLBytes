@@ -5,6 +5,7 @@ import Image from "next/image";
 import About from "./sections/About";
 import AboutProjects from "./sections/AboutProjects";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Contacts from "./sections/Contacts";
 
 function Hero() {
   // Track scroll progress
@@ -176,8 +177,8 @@ function Hero() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="h-screen bg-white">
-        <h1>contacts</h1>
+      <section id="contact" className="h-[50vh] bg-[#f2f1f3]">
+       <Contacts />
       </section>
     </div>
   );
