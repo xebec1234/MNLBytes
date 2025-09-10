@@ -20,7 +20,6 @@ const Contacts = () => {
 
       {/* Divider */}
       <div className="w-full max-w-3xl border-t mt-10 pt-6 flex flex-col items-center gap-4">
-        {/* Social icons */}
         <div className="flex gap-6 text-gray-500">
           <a
             href="https://github.com/xebec1234"

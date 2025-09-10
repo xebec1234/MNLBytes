@@ -8,16 +8,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Contacts from "./sections/Contacts";
 
 function Hero() {
-  // Track scroll progress
   const { scrollY } = useScroll();
 
-  // Background moves slower than scroll
   const bgY = useTransform(scrollY, [0, 500], [0, 150]);
 
-  // Gear floats slightly
   const gearY = useTransform(scrollY, [0, 500], [0, -100]);
 
-  // Logic icon floats opposite direction
   const logicY = useTransform(scrollY, [0, 500], [0, 100]);
 
   return (
@@ -160,7 +156,6 @@ function Hero() {
         id="projects"
         className="relative py-20 px-6 md:px-16 overflow-hidden"
       >
-        {/* Background Image */}
         <Image
           src="/hero-bg.svg"
           alt="Hero Background"
@@ -168,17 +163,14 @@ function Hero() {
           priority
           className="absolute inset-0 -z-10 object-cover object-center opacity-30 scale-105 sm:scale-100 transition-all duration-500"
         />
-
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-transparent to-white" />
 
-        {/* Content */}
         <AboutProjects />
       </section>
 
       {/* Contact */}
       <section id="contact" className="h-[50vh] bg-[#f2f1f3]">
-       <Contacts />
+        <Contacts />
       </section>
     </div>
   );
