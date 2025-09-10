@@ -91,7 +91,7 @@ function Hero() {
           <br />
           Purposeful Coding and Doing
         </h1>
-        <p className="hidden sm:block text-[15px] sm:text-[20px] sm:mt-4 max-w-prose leading-snug">
+        <p className="hidden z-10 sm:block text-[15px] sm:text-[20px] sm:mt-4 max-w-prose leading-snug">
           I&#39;m an aspiring software developer with experience in building web
           and <br />
           desktop applications, and automating workload processes.
@@ -114,16 +114,15 @@ function Hero() {
       {/* about section */}
       <section
         id="about"
-        className="h-screen w-full flex justify-center px-4 overflow-hidden bg-[#e7ddf083]"
+        className="h-screen sm:h-full w-full flex justify-center px-4 overflow-hidden bg-[#e7ddf083]"
       >
         <div className="relative w-[80vw] h-[calc(100vh-7rem)] mt-28 bg-white/30 backdrop-blur-md rounded-t-3xl shadow-lg p-8 flex flex-col">
-          <div className="absolute -right-20 top-2 sm:-right-24 sm:top-10 -translate-y-11">
+          <div className="absolute -right-10 top-40 sm:-right-24 sm:top-10 -translate-y-11 w-32 h-32 sm:w-60 sm:h-60">
             <Image
               src="/favicon.svg"
               alt="Like Icon"
-              width={240}
-              height={240}
-              className="drop-shadow-lg"
+              fill
+              className="drop-shadow-lg object-contain"
             />
           </div>
           <div className="text-center mb-8">
@@ -131,13 +130,21 @@ function Hero() {
             <p className="text-lg">Bachelor of Science in Computer Science</p>
           </div>
 
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            className="
+            flex-1 
+            flex flex-row gap-8 
+            overflow-x-auto 
+            md:grid md:grid-cols-2 md:overflow-x-visible
+            scrollbar-hide
+          "
+          >
             {/* Automation */}
             <div
-              className="p-6 rounded-t-2xl bg-white/40 backdrop-blur-md 
+              className="min-w-[63vw] md:min-w-0 p-6 rounded-t-2xl bg-white/40 backdrop-blur-md 
               shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)] flex flex-col h-[calc(100vh-7rem)]"
             >
-              <h2 className="text-xl font-semibold text-gray-800">
+              <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
                 Automation
               </h2>
 
@@ -150,20 +157,18 @@ function Hero() {
 
             {/* Software Development */}
             <div
-              className="p-6 rounded-t-2xl bg-white/40 backdrop-blur-md
-            shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)]
-            flex flex-col"
+              className="min-w-[63vw] md:min-w-0 p-6 rounded-t-2xl bg-white/40 backdrop-blur-md
+              shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)]
+              flex flex-col h-[calc(100vh-7rem)]"
             >
-              <h2 className="text-xl font-semibold text-gray-800">
+              <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
                 Software Development
               </h2>
 
               <div className="mt-2 grid grid-cols-2 grid-rows-2 gap-6 h-[50vh]">
                 {/* Desktop App */}
                 <div>
-                  <h3 className="font-medium text-gray-800 mb-2">
-                    Desktop App
-                  </h3>
+                  <h3 className="font-medium mb-2">Desktop App</h3>
 
                   <div className="mt-3 space-y-2 overflow-hidden">
                     {desktopSkills.map((s, i) => (
@@ -174,7 +179,7 @@ function Hero() {
 
                 {/* Web App */}
                 <div>
-                  <h3 className="font-medium text-gray-800 mb-2">Web App</h3>
+                  <h3 className="font-medium mb-2">Web App</h3>
                   <div className="space-y-2 overflow-hidden">
                     {webSkills.map((s, i) => (
                       <SkillBar key={i} name={s.name} level={s.level} />
@@ -184,7 +189,7 @@ function Hero() {
 
                 {/* Database */}
                 <div>
-                  <h3 className="font-medium text-gray-800 mb-2">Database</h3>
+                  <h3 className="font-medium mb-2">Database</h3>
                   <div className="space-y-2 overflow-hidden">
                     {databaseSkills.map((s, i) => (
                       <SkillBar key={i} name={s.name} level={s.level} />
@@ -194,7 +199,7 @@ function Hero() {
 
                 {/* ORM */}
                 <div>
-                  <h3 className="font-medium text-gray-800 mb-2">ORM</h3>
+                  <h3 className="font-medium mb-2">ORM</h3>
                   <div className="space-y-2 overflow-hidden">
                     {ormSkills.map((s, i) => (
                       <SkillBar key={i} name={s.name} level={s.level} />
@@ -202,12 +207,15 @@ function Hero() {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
+      {/* About Projects */}
+      <section></section>
+
+      {/* Contact */}
       <section id="contact" className="h-screen bg-white">
         <h1>contacts</h1>
       </section>

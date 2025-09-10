@@ -32,7 +32,7 @@ export default function SkillBar({ name, level }: SkillBarProps) {
 
   return (
     <div ref={barRef} className="mt-2">
-      <div className="flex justify-between text-gray-700 text-sm">
+      <div className="flex justify-between text-sm">
         <span>{name}</span>
         <span>{level}/10</span>
       </div>

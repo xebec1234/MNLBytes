@@ -22,10 +22,7 @@ export default function Navbar() {
           <NavLink href="#contact">Contact</NavLink>
         </div>
 
-        <button
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -37,10 +34,10 @@ export default function Navbar() {
       >
         <div className="flex flex-col space-y-4 font-medium">
           <NavLink href="#go">Home</NavLink>
-          <NavLink href="/about">About</NavLink>
+          <NavLink href="#about">About</NavLink>
           <NavLink href="/portfolio">Project</NavLink>
           <NavLink href="/certificates">Certificates</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
+          <NavLink href="#contact">Contact</NavLink>
         </div>
       </div>
     </nav>
