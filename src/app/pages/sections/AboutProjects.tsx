@@ -1,15 +1,34 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
 
 const AboutProjects = () => {
   return (
     <div className="relative max-w-6xl mx-auto space-y-24">
-      <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
+      <motion.h2
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+        className="text-3xl font-bold text-center mb-12 bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent"
+      >
         Featured Projects
-      </h2>
+      </motion.h2>
 
       {/* Payroll */}
-      <div className="flex flex-col md:flex-row items-center gap-8 z-1">
+      <motion.div
+        className="flex flex-col md:flex-row items-center gap-8 z-1"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInUp}
+      >
         <div className="flex-1">
           <Image
             src="/payroll-java.png"
@@ -48,10 +67,16 @@ const AboutProjects = () => {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Greenline */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+      <motion.div
+        className="flex flex-col md:flex-row-reverse items-center gap-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInUp}
+      >
         <div className="flex-1">
           <Image
             src="/greenline-nextjs.png"
@@ -91,10 +116,16 @@ const AboutProjects = () => {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Java Core */}
-      <div className="flex flex-col md:flex-row items-center gap-8">
+      <motion.div
+        className="flex flex-col md:flex-row items-center gap-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInUp}
+      >
         <div className="flex-1">
           <Image
             src="/javacore-nextjs.png"
@@ -122,7 +153,7 @@ const AboutProjects = () => {
             <p className="text-sm text-gray-600">Private Company</p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

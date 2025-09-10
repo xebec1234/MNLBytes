@@ -1,5 +1,8 @@
+"use client"; // required for Framer Motion
+
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import SkillBar from "@/components/Bar.tsx/SkillBar";
 
 const automationSkills = [
@@ -32,7 +35,13 @@ const ormSkills = [{ name: "Prisma", level: 3 }];
 
 const About = () => {
   return (
-    <div className="relative w-[80vw] h-[calc(100vh-7rem)] mt-28 bg-white/30 backdrop-blur-md rounded-t-3xl shadow-lg p-8 flex flex-col">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="relative w-[80vw] h-[calc(100vh-7rem)] mt-28 bg-white/30 backdrop-blur-md rounded-t-3xl shadow-lg p-8 flex flex-col"
+    >
       <div className="absolute -right-10 top-40 sm:-right-24 sm:top-10 -translate-y-11 w-32 h-32 sm:w-60 sm:h-60">
         <Image
           src="/favicon.svg"
@@ -41,41 +50,53 @@ const About = () => {
           className="drop-shadow-lg object-contain"
         />
       </div>
-      <div className="text-center mb-8">
+
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="text-center mb-8"
+      >
         <h1 className="text-3xl font-bold">Manuel Jose Pera</h1>
         <p className="text-lg">Bachelor of Science in Computer Science</p>
-      </div>
+      </motion.div>
 
+      {/* Skill Sections */}
       <div
-        className="
-        flex-1 
-        flex flex-row gap-8 
-        overflow-x-auto 
-        md:grid md:grid-cols-2 md:overflow-x-visible
-        scrollbar-hide
-        "
+        className="flex-1 flex flex-row gap-8 
+        overflow-x-auto md:grid md:grid-cols-2 md:overflow-x-visible scrollbar-hide"
       >
         {/* Automation */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
           className="min-w-[63vw] md:min-w-0 p-6 rounded-t-2xl bg-white/40 backdrop-blur-md 
-                  shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)] flex flex-col h-[calc(100vh-7rem)]"
+          shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)] 
+          flex flex-col h-[calc(100vh-7rem)]"
         >
           <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
             Automation
           </h2>
-
           <div className="mt-4 space-y-4">
             {automationSkills.map((skill, i) => (
               <SkillBar key={i} name={skill.name} level={skill.level} />
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Software Development */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
           className="min-w-[63vw] md:min-w-0 p-6 rounded-t-2xl bg-white/40 backdrop-blur-md
-                  shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)]
-                  flex flex-col h-[calc(100vh-7rem)]"
+          shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)]
+          flex flex-col h-[calc(100vh-7rem)]"
         >
           <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
             Software Development
@@ -85,7 +106,6 @@ const About = () => {
             {/* Desktop App */}
             <div>
               <h3 className="font-medium mb-2">Desktop App</h3>
-
               <div className="mt-3 space-y-2 overflow-hidden">
                 {desktopSkills.map((s, i) => (
                   <SkillBar key={i} name={s.name} level={s.level} />
@@ -123,9 +143,9 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
