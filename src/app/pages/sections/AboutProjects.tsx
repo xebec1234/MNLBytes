@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -161,16 +162,18 @@ const AboutProjects = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
       >
-        <button
-          className="mt-2 px-6 py-1 rounded-2xl text-white text-lg font-medium 
-      bg-gradient-to-b from-[#A855F7]/70 to-[#8300FF]/70
-      backdrop-blur-md border border-white/20
-      shadow-lg shadow-[#0000001a]
-      hover:from-[#A855F7]/80 hover:to-[#8300FF]/80
-      transition-all duration-300"
-        >
-          View All
-        </button>
+        <Link href="/projects" passHref>
+          <button
+            className="mt-2 px-6 py-1 rounded-2xl text-white text-lg font-medium 
+            bg-gradient-to-b from-[#A855F7]/70 to-[#8300FF]/70
+            backdrop-blur-md border border-white/20
+            shadow-lg shadow-[#0000001a]
+            hover:from-[#A855F7]/80 hover:to-[#8300FF]/80
+            transition-all duration-300"
+          >
+            View All
+          </button>
+        </Link>
       </motion.div>
     </div>
   );

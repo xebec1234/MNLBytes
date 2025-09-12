@@ -17,8 +17,8 @@ export default function NavBar() {
         <div className="hidden md:flex space-x-10 font-medium">
           <NavLink href="#go">Go</NavLink>
           <NavLink href="#about">About</NavLink>
-          <NavLink href="/portfolio">Project</NavLink>
-          <NavLink href="/certificates">Certificates</NavLink>
+          <NavLink href="#projects">Project</NavLink>
+          {/* <NavLink href="/certificates">Certificates</NavLink> */}
           <NavLink href="#contact">Contact</NavLink>
         </div>
 
@@ -35,8 +35,8 @@ export default function NavBar() {
         <div className="flex flex-col space-y-4 font-medium">
           <NavLink href="#go">Home</NavLink>
           <NavLink href="#about">About</NavLink>
-          <NavLink href="/portfolio">Project</NavLink>
-          <NavLink href="/certificates">Certificates</NavLink>
+          <NavLink href="#projects">Project</NavLink>
+          {/* <NavLink href="/certificates">Certificates</NavLink> */}
           <NavLink href="#contact">Contact</NavLink>
         </div>
       </div>

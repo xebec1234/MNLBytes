@@ -27,11 +27,11 @@ const webSkills = [
 const databaseSkills = [
   { name: "MySQL", level: 5 },
   { name: "SQLite", level: 4 },
-  { name: "Neon", level: 2 },
+  { name: "Neon", level: 6 },
   { name: "MongoDB", level: 3 },
 ];
 
-const ormSkills = [{ name: "Prisma", level: 3 }];
+const ormSkills = [{ name: "Prisma", level: 7 }];
 
 const About = () => {
   return (
@@ -94,7 +94,7 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="min-w-[63vw] md:min-w-0 p-6 rounded-t-2xl bg-white/40 backdrop-blur-md
+          className="min-w-[75vw] md:min-w-0 p-6 rounded-t-2xl bg-white/40 backdrop-blur-md
           shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)]
           flex flex-col h-[calc(100vh-7rem)]"
         >

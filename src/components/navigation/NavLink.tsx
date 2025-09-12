@@ -17,7 +17,6 @@ export default function NavLink({
 
   useEffect(() => {
     if (isPageLink) {
-      // For normal Next.js routes
       setIsActive(pathname === href);
     } else {
       // For anchor links (#about, #contact)
