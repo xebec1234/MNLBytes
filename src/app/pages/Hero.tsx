@@ -5,7 +5,7 @@ import Image from "next/image";
 import About from "./sections/About";
 import AboutProjects from "./sections/AboutProjects";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Contacts from "./sections/Contacts";
+import Footer from "../../components/navigation/Footer";
 
 function Hero() {
   const { scrollY } = useScroll();
@@ -170,7 +170,7 @@ function Hero() {
 
       {/* Contact */}
       <section id="contact" className="h-[50vh] bg-[#f2f1f3]">
-        <Contacts />
+        <Footer />
       </section>
     </div>
   );

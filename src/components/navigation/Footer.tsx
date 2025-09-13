@@ -1,7 +1,7 @@
 import React from "react";
 import { Github, Linkedin, Mail, Facebook } from "lucide-react";
 
-const Contacts = () => {
+const Footer = () => {
   return (
     <div className="w-full pt-8 flex flex-col items-center text-center">
       <h2 className="text-3xl font-bold mb-4">Let’s Stay Connected</h2>
@@ -56,4 +56,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default Footer;
