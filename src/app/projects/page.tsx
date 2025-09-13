@@ -1,32 +1,65 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import NavBar from "@/components/navigation/NavBar";
 import Filters from "@/components/filters/Filters";
-import { X } from "lucide-react"; // <-- for x button
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 type Projects = {
   id: number;
   name: string;
   genres: string[];
+  images: string[];
+  description: string;
 };
 
 const allProjects: Projects[] = [
   {
     id: 1,
-    name: "Inventory Web System",
-    genres: ["Web App", "Next.js", "PHP"],
+    name: "Java Condition Monitoring",
+    genres: ["Web App", "Next.js", "Typescript"],
+    images: ["/projects/javacore-nextjs.png"],
+    description:
+      "A machine health monitoring dashboard built with Next.js and TypeScript. Automates report generation for mechanical engineers.",
   },
-  { id: 2, name: "Mobile Fitness Tracker", genres: ["Mobile App", "React"] },
-  { id: 3, name: "Payroll Desktop", genres: ["Desktop App", "Java"] },
-  { id: 4, name: "Portfolio Website", genres: ["Web App", "Next.js", "React"] },
+  {
+    id: 2,
+    name: "Greenline",
+    genres: ["Web App", "Next.js", "Typescript"],
+    images: [
+      "/projects/greenline/greenline-nextjs.png",
+      "/projects/greenline/greenline1.png",
+      "/projects/greenline/greenline2.png",
+      "/projects/greenline/greenline3.png",
+      "/projects/greenline/greenline4.png",
+      "/projects/greenline/greenline5.png",
+      "/projects/greenline/greenline6.png",
+    ],
+    description:
+      "Greenline is an open forum for developers to discuss code, highlight problem areas, and learn collaboratively.",
+  },
+  {
+    id: 3,
+    name: "Payroll Calculator",
+    genres: ["Desktop App", "Java"],
+    images: [
+      "/projects/payroll/payroll-java.png",
+      "/projects/payroll/payroll1.png",
+      "/projects/payroll/payroll2.png",
+    ],
+    description:
+      "A desktop payroll calculator built with Java for calculating salaries, deductions, and net pay efficiently.",
+  },
 ];
 
 const Projects = () => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [showFilters, setShowFilters] = useState(false);
+
+  const [selectedProject, setSelectedProject] = useState<Projects | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const filteredProjects = allProjects.filter((project) =>
     selectedFilters.length === 0
@@ -38,10 +71,23 @@ const Projects = () => {
     setSelectedFilters(selectedFilters.filter((f) => f !== filter));
   };
 
+  const nextImage = () => {
+    if (!selectedProject) return;
+    setCurrentImageIndex((prev) => (prev + 1) % selectedProject.images.length);
+  };
+
+  const prevImage = () => {
+    if (!selectedProject) return;
+    setCurrentImageIndex(
+      (prev) =>
+        (prev - 1 + selectedProject.images.length) %
+        selectedProject.images.length
+    );
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
       <NavBar />
-
       {/* Background */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -58,6 +104,14 @@ const Projects = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
       </motion.div>
+      <div className="absolute right-20 top-40 sm:right-3 sm:top-19 -translate-y-11 w-32 h-32 sm:w-60 sm:h-60 ">
+        <Image
+          src="/projects.svg"
+          alt="Like Icon"
+          fill
+          className="drop-shadow-lg object-contain"
+        />
+      </div>
 
       {/* Container */}
       <div
@@ -71,7 +125,6 @@ const Projects = () => {
             Projects
           </h2>
 
-          {/* Search bar with chips */}
           <div className="relative transform -translate-x-1/2 w-1/2">
             <div
               onClick={() => setShowFilters((prev) => !prev)}
@@ -86,7 +139,7 @@ const Projects = () => {
                     {filter}
                     <button
                       onClick={(e) => {
-                        e.stopPropagation(); // prevent toggling filter dropdown
+                        e.stopPropagation();
                         removeFilter(filter);
                       }}
                       className="hover:text-purple-900"
@@ -100,7 +153,6 @@ const Projects = () => {
               )}
             </div>
 
-            {/* Dropdown filters */}
             {showFilters && (
               <div className="absolute top-14 w-full bg-white/90 backdrop-blur-md rounded-xl shadow-lg border p-4">
                 <Filters
@@ -120,17 +172,25 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Scrollable Projects */}
         <div className="flex-1 overflow-y-auto px-6 py-6 custom-scroll relative">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {filteredProjects.length > 0 ? (
               filteredProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="relative flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-lg transition bg-gray-100"
+                  onClick={() => {
+                    setSelectedProject(project);
+                    setCurrentImageIndex(0);
+                  }}
+                  className="cursor-pointer relative flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-lg transition bg-gray-100"
                 >
-                  <div className="h-40 bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center text-white text-lg font-bold">
-                    IMG
+                  <div className="h-40 w-full relative">
+                    <Image
+                      src={project.images[0]}
+                      alt={project.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div className="p-3 bg-white text-center">
                     <p className="font-medium text-gray-700">{project.name}</p>
@@ -145,15 +205,69 @@ const Projects = () => {
           </div>
         </div>
       </div>
-      {/* Floating Illustration */}
-      <div className="absolute right-20 top-40 sm:right-14 sm:top-16 -translate-y-11 w-32 h-32 sm:w-60 sm:h-60 ">
-        <Image
-          src="/projects.svg"
-          alt="Like Icon"
-          fill
-          className="drop-shadow-lg object-contain"
-        />
-      </div>
+
+      {/* Modal */}
+      {selectedProject && (
+        <div
+          className="fixed inset-0 bg-purple-600/5 flex items-center justify-center z-[999]"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="relative w-[90vw] max-w-3xl bg-white rounded-2xl shadow-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-3 right-3 bg-gray-200 p-1 rounded-full hover:bg-gray-300"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Image carousel */}
+            <div className="relative w-full h-80 bg-purple-100 overflow-hidden flex items-center justify-center">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={currentImageIndex}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -100, opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute w-full h-full flex items-center justify-center"
+                >
+                  <Image
+                    src={selectedProject.images[currentImageIndex]}
+                    alt={selectedProject.name}
+                    fill
+                    className="object-contain"
+                  />
+                </motion.div>
+              </AnimatePresence>
+              <button
+                onClick={prevImage}
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
+
+            {/* Description */}
+            <div className="p-5">
+              <h3 className="text-lg font-semibold text-gray-800">
+                {selectedProject.name}
+              </h3>
+              <p className="mt-2 text-gray-600 text-sm">
+                {selectedProject.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

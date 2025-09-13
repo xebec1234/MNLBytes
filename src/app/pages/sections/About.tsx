@@ -14,8 +14,8 @@ const automationSkills = [
 ];
 
 const desktopSkills = [
-  { name: "Java", level: 6 },
-  { name: "React & Electron", level: 4 },
+  { name: "Java", level: 4 },
+  { name: "React & Electron", level: 3 },
 ];
 
 const webSkills = [

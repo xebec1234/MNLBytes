@@ -9,7 +9,7 @@ type FiltersProps = {
 
 const Filters: React.FC<FiltersProps> = ({ selected, onChange }) => {
   const genres = ["Web App", "Mobile App", "Desktop App"];
-  const technologies = ["Java", "PHP", "Next.js", "Laravel", "React"];
+  const technologies = ["Java", "PHP", "Next.js", "Laravel", "React", "Typescript"];
 
   const toggleFilter = (filter: string) => {
     if (selected.includes(filter)) {
