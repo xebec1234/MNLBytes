@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import SkillBar from "@/components/Bar.tsx/SkillBar";
+import SkillBar from "@/components/Bar/SkillBar";
 
 const automationSkills = [
   { name: "Excel", level: 5 },
