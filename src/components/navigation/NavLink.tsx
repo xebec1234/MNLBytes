@@ -12,40 +12,39 @@ export default function NavLink({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isPageLink = !href.startsWith("#"); // true for /portfolio, false for #about
+  const isAnchor = href.startsWith("#");
   const [isActive, setIsActive] = useState(false);
+ 
+  const linkHref = isAnchor ? `/${href}` : href;
 
   useEffect(() => {
-    if (isPageLink) {
+    if (!isAnchor) {
       setIsActive(pathname === href);
-    } else {
-      // For anchor links (#about, #contact)
-      const sectionId = href.replace("#", "");
-      const section = document.getElementById(sectionId);
-
-      if (!section) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setIsActive(true);
-            } else {
-              setIsActive(false);
-            }
-          });
-        },
-        { threshold: 0.6 } // 60% of section visible
-      );
-
-      observer.observe(section);
-      return () => observer.disconnect();
+      return;
     }
-  }, [pathname, href, isPageLink]);
+
+    const sectionId = href.replace("#", "");
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsActive(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [pathname, href, isAnchor]);
 
   return (
     <Link
-      href={href}
+      href={linkHref}
       className={`
         relative pb-1 transition-colors
         ${isActive ? "text-violet-700 after:w-full" : "hover:text-violet-600"}
