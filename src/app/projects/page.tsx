@@ -52,6 +52,38 @@ const allProjects: Projects[] = [
     description:
       "A desktop payroll calculator built with Java for calculating salaries, deductions, and net pay efficiently.",
   },
+  {
+    id: 4,
+    name: "Elashian Haven",
+    genres: ["Web App", "HTML & CSS"],
+    images: [
+      "/projects/elashian/elashian.png",
+      "/projects/elashian/elashian6.png",
+      "/projects/elashian/elashian5.png",
+      "/projects/elashian/elashian4.png",
+      "/projects/elashian/elashian3.png",
+      "/projects/elashian/elashian2.png",
+      "/projects/elashian/elashian1.png",
+    ],
+    description:
+      "A responsive, modern website for a mountain resort & hotel — showcasing an immersive user experience built with HTML, CSS, and JavaScrip",
+  },
+  {
+    id: 5,
+    name: "Calculator",
+    genres: ["Web App", "PHP", "HTML & CSS"],
+    images: [
+      "/projects/calculator/calculator.png",
+      "/projects/calculator/calculator4.png",
+      "/projects/calculator/calculator3.png",
+      "/projects/calculator/calculator2.png",
+      "/projects/calculator/calculator1.png",
+    ],
+    description: `A beautifully crafted calculator web app built with PHP, HTML/CSS, and a touch of modern design — featuring:
+✅ Level 1: Basic arithmetic form calculator
+✅ Level 2: Button-based calculator with neumorphism & glassmorphism
+🔜 Level 3: Scientific calculator (Coming soon...)`,
+  },
 ];
 
 const Projects = () => {
@@ -104,7 +136,7 @@ const Projects = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
       </motion.div>
-      <div className="absolute right-20 top-40 sm:right-3 sm:top-19 -translate-y-11 w-32 h-32 sm:w-60 sm:h-60 ">
+      <div className="absolute -right-10 top-25 sm:right-3 sm:top-19 -translate-y-11 w-32 h-32 sm:w-60 sm:h-60 ">
         <Image
           src="/projects.svg"
           alt="Like Icon"
@@ -262,7 +294,7 @@ const Projects = () => {
               <h3 className="text-lg font-semibold text-gray-800">
                 {selectedProject.name}
               </h3>
-              <p className="mt-2 text-gray-600 text-sm">
+              <p className="mt-2 text-gray-600 text-sm whitespace-pre-line">
                 {selectedProject.description}
               </p>
             </div>
