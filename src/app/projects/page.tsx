@@ -164,22 +164,23 @@ const Projects = () => {
       {/* Modal */}
       {selectedProject && (
         <div
-          className="fixed inset-0 bg-purple-600/5 flex items-center justify-center z-[999]"
+          className="fixed inset-0 bg-purple-600/5 flex items-center justify-center z-[999] p-2"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="relative w-[90vw] max-w-3xl bg-white rounded-2xl shadow-xl overflow-hidden"
+            className="relative max-w-5xl w-auto max-h-[95vh] bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-3 right-3 bg-gray-200 p-1 rounded-full hover:bg-gray-300"
+              className="absolute top-3 right-3 bg-gray-200 p-1 rounded-full hover:bg-gray-300 z-10"
             >
               <X size={20} />
             </button>
 
             {/* Image carousel */}
-            <div className="relative w-full h-80 bg-purple-100 overflow-hidden flex items-center justify-center">
+            <div className="relative flex items-center justify-center bg-violet-50">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={currentImageIndex}
@@ -187,16 +188,19 @@ const Projects = () => {
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: -100, opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="absolute w-full h-full flex items-center justify-center"
+                  className="relative"
                 >
                   <Image
                     src={selectedProject.images[currentImageIndex]}
                     alt={selectedProject.name}
-                    fill
-                    className="object-contain"
+                    width={1200}
+                    height={800}
+                    className="w-auto max-w-full h-auto max-h-[90vh] object-contain"
                   />
                 </motion.div>
               </AnimatePresence>
+
+              {/* Prev / Next buttons */}
               <button
                 onClick={prevImage}
                 className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
@@ -212,7 +216,7 @@ const Projects = () => {
             </div>
 
             {/* Description */}
-            <div className="p-5">
+            <div className="p-5 overflow-y-auto max-h-[40vh]">
               <h3 className="text-lg font-semibold text-gray-800">
                 {selectedProject.name}
               </h3>
