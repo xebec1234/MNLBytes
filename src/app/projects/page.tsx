@@ -120,55 +120,56 @@ const Projects = () => {
         flex flex-col relative"
       >
         {/* Header */}
-        <div className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 border-b">
-          <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
-            Projects
-          </h2>
-
-          <div className="relative transform -translate-x-1/2 w-1/2">
-            <div
-              onClick={() => setShowFilters((prev) => !prev)}
-              className="w-full min-h-[42px] px-3 py-2 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm flex items-center flex-wrap gap-2 cursor-text focus-within:ring-2 focus-within:ring-purple-500"
-            >
-              {selectedFilters.length > 0 ? (
-                selectedFilters.map((filter) => (
-                  <span
-                    key={filter}
-                    className="flex items-center gap-1 px-2 py-1 rounded-lg text-sm bg-purple-100 text-purple-700 border border-purple-300"
-                  >
-                    {filter}
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        removeFilter(filter);
-                      }}
-                      className="hover:text-purple-900"
+        <div className="sticky top-0 z-50">
+          <div className="relative flex items-center px-6 py-4 border-b bg-white/20 backdrop-blur-md">
+            <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
+              Projects
+            </h2>
+            <div className="w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 ml-10 md:ml-0 md:absolute md:left-1/2 md:-translate-x-1/2">
+              <div
+                onClick={() => setShowFilters((prev) => !prev)}
+                className="relative w-[50vw] sm:w-[25vw] min-h-[42px] px-3 py-2 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm flex items-center flex-wrap gap-2 cursor-text focus-within:ring-2 focus-within:ring-purple-500"
+              >
+                {selectedFilters.length > 0 ? (
+                  selectedFilters.map((filter) => (
+                    <span
+                      key={filter}
+                      className="flex items-center gap-1 px-2 py-1 rounded-lg text-sm bg-purple-100 text-purple-700 border border-purple-300"
                     >
-                      <X size={14} />
+                      {filter}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          removeFilter(filter);
+                        }}
+                        className="hover:text-purple-900"
+                      >
+                        <X size={14} />
+                      </button>
+                    </span>
+                  ))
+                ) : (
+                  <span className="text-gray-400">Select filters...</span>
+                )}
+              </div>
+
+              {showFilters && (
+                <div className="absolute left-0 top-full mt-3 w-full bg-white/90 backdrop-blur-md rounded-xl shadow-lg border p-4 z-50">
+                  <Filters
+                    selected={selectedFilters}
+                    onChange={setSelectedFilters}
+                  />
+                  <div className="text-right mt-3">
+                    <button
+                      onClick={() => setShowFilters(false)}
+                      className="px-3 py-1 rounded-md bg-purple-600 text-white text-sm font-medium hover:bg-purple-700"
+                    >
+                      Done
                     </button>
-                  </span>
-                ))
-              ) : (
-                <span className="text-gray-400">Select filters...</span>
+                  </div>
+                </div>
               )}
             </div>
-
-            {showFilters && (
-              <div className="absolute top-14 w-full bg-white/90 backdrop-blur-md rounded-xl shadow-lg border p-4">
-                <Filters
-                  selected={selectedFilters}
-                  onChange={setSelectedFilters}
-                />
-                <div className="text-right mt-3">
-                  <button
-                    onClick={() => setShowFilters(false)}
-                    className="px-3 py-1 rounded-md bg-purple-600 text-white text-sm font-medium hover:bg-purple-700"
-                  >
-                    Done
-                  </button>
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
