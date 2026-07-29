@@ -123,8 +123,8 @@ const VAAbout = () => {
             <Image
               src="/me.svg"
               alt="Manuel Jose Pera"
-              width={900}
-              height={900}
+              width={700}
+              height={1003}
               className="w-full h-auto"
             />
           </motion.div>
