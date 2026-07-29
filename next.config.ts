@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
         hostname: "media3.giphy.com",
       },
     ],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 };
 
