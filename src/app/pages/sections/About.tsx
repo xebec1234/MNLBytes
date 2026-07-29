@@ -78,7 +78,7 @@ const About = () => {
           shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)] 
           flex flex-col h-[calc(100vh-7rem)]"
         >
-          <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
+          <h2 className="text-xl font-semibold bg-linear-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
             Automation
           </h2>
           <div className="mt-4 space-y-4">
@@ -98,7 +98,7 @@ const About = () => {
           shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.6)]
           flex flex-col h-[calc(100vh-7rem)]"
         >
-          <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
+          <h2 className="text-xl font-semibold bg-linear-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
             Software Development
           </h2>
 

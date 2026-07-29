@@ -17,7 +17,7 @@ const AboutProjects = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInUp}
-        className="text-3xl font-bold text-center mb-12 bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent"
+        className="text-3xl font-bold text-center mb-12 bg-linear-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent"
       >
         Featured Projects
       </motion.h2>
@@ -96,7 +96,7 @@ const AboutProjects = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-1 rounded-2xl text-white text-sm font-medium 
-                  bg-gradient-to-b from-[#A855F7]/70 to-[#8300FF]/70
+                  bg-linear-to-b from-[#A855F7]/70 to-[#8300FF]/70
                   backdrop-blur-md border border-white/20
                   shadow-lg shadow-[#0000001a]
                   hover:from-[#A855F7]/80 hover:to-[#8300FF]/80
@@ -144,7 +144,7 @@ const AboutProjects = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-1 rounded-2xl text-white text-sm font-medium 
-                  bg-gradient-to-b from-[#A855F7]/70 to-[#8300FF]/70
+                  bg-linear-to-b from-[#A855F7]/70 to-[#8300FF]/70
                   backdrop-blur-md border border-white/20
                   shadow-lg shadow-[#0000001a]
                   hover:from-[#A855F7]/80 hover:to-[#8300FF]/80
@@ -166,7 +166,7 @@ const AboutProjects = () => {
         <Link href="/projects" passHref>
           <button
             className="mt-2 px-6 py-1 rounded-2xl text-white text-lg font-medium 
-            bg-gradient-to-b from-[#A855F7]/70 to-[#8300FF]/70
+            bg-linear-to-b from-[#A855F7]/70 to-[#8300FF]/70
             backdrop-blur-md border border-white/20
             shadow-lg shadow-[#0000001a]
             hover:from-[#A855F7]/80 hover:to-[#8300FF]/80
