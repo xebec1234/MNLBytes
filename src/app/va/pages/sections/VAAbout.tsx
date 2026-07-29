@@ -118,13 +118,13 @@ const VAAbout = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="relative z-0 md:absolute md:-right-24 md:top-1/2 md:-translate-y-1/2 w-full md:w-[clamp(380px,42vw,500px)] pointer-events-none"
+            className="relative z-0 md:absolute md:-right-20 md:top-1/2 md:-translate-y-1/2 w-full md:w-[clamp(380px,42vw,500px)] pointer-events-none"
           >
             <Image
               src="/me.svg"
               alt="Manuel Jose Pera"
-              width={500}
-              height={801}
+              width={450}
+              height={750}
               className="w-full h-auto"
             />
           </motion.div>
