@@ -1,3 +1,4 @@
+// src/components/navigation/NavLink.tsx
 "use client";
 
 import { usePathname } from "next/navigation";
@@ -14,8 +15,9 @@ export default function NavLink({
   const pathname = usePathname();
   const isAnchor = href.startsWith("#");
   const [isActive, setIsActive] = useState(false);
- 
-  const linkHref = isAnchor ? `/${href}` : href;
+
+  const basePath = pathname.startsWith("/va") ? "/va" : "";
+  const linkHref = isAnchor ? `${basePath}${href}` : href;
 
   useEffect(() => {
     if (!isAnchor) {
@@ -28,14 +30,8 @@ export default function NavLink({
     if (!section) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsActive(entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0.3,
-      }
+      (entries) => entries.forEach((entry) => setIsActive(entry.isIntersecting)),
+      { threshold: 0.3 }
     );
 
     observer.observe(section);
@@ -49,7 +45,7 @@ export default function NavLink({
         relative pb-1 transition-colors
         ${isActive ? "text-violet-700 after:w-full" : "hover:text-violet-600"}
         after:absolute after:left-0 after:bottom-0
-        after:h-[2px] after:bg-gradient-to-r after:from-violet-500 after:to-violet-700
+        after:h-0.5 after:bg-linear-to-r after:from-violet-500 after:to-violet-700
         after:transition-all after:duration-300
         ${!isActive ? "after:w-0 hover:after:w-full" : ""}
       `}

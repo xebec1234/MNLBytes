@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import About from "./sections/About";
 import AboutProjects from "./sections/AboutProjects";
@@ -37,7 +36,7 @@ function Hero() {
             priority
             className="object-cover opacity-30 sm:object-center object-right scale-105 sm:scale-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-transparent to-white" />
         </motion.div>
 
         {/* Gear */}
@@ -99,11 +98,11 @@ function Hero() {
           transition={{ duration: 1 }}
           className="relative text-[35px] sm:text-[3.5vw] font-bold leading-[1.3]"
         >
-          <span className="bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
+          <span className="bg-linear-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
             Developing{" "}
           </span>
           Impactful{" "}
-          <span className="bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
+          <span className="bg-linear-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
             Solutions
           </span>{" "}
           Through
@@ -132,7 +131,7 @@ function Hero() {
         >
           <button
             className="mt-8 px-6 py-3 rounded-2xl text-white text-lg font-medium 
-            bg-gradient-to-b from-[#A855F7]/70 to-[#8300FF]/70
+            bg-linear-to-b from-[#A855F7]/70 to-[#8300FF]/70
             backdrop-blur-md border border-white/20
             shadow-lg shadow-[#0000001a]
             hover:from-[#A855F7]/80 hover:to-[#8300FF]/80
@@ -163,7 +162,7 @@ function Hero() {
           priority
           className="absolute inset-0 -z-10 object-cover object-center opacity-30 scale-105 sm:scale-100 transition-all duration-500"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-transparent to-white" />
+        <div className="absolute inset-0 -z-10 bg-linear-to-b from-white via-transparent to-white" />
 
         <AboutProjects />
       </section>

@@ -56,7 +56,7 @@ const Projects = () => {
           priority
           className="object-cover opacity-30 sm:object-center object-right scale-105 sm:scale-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
+        <div className="absolute inset-0 bg-linear-to-b from-white via-transparent to-white" />
       </motion.div>
       <div className="absolute -right-10 top-25 sm:right-3 sm:top-19 -translate-y-11 w-32 h-32 sm:w-60 sm:h-60 ">
         <Image
@@ -76,13 +76,13 @@ const Projects = () => {
         {/* Header */}
         <div className="sticky top-0 z-50">
           <div className="relative flex items-center px-6 py-4 border-b bg-white/20 backdrop-blur-md">
-            <h2 className="text-xl font-semibold bg-gradient-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
+            <h2 className="text-xl font-semibold bg-linear-to-b from-[#A855F7] to-[#8300FF] bg-clip-text text-transparent">
               Projects
             </h2>
             <div className="w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 ml-10 md:ml-0 md:absolute md:left-1/2 md:-translate-x-1/2">
               <div
                 onClick={() => setShowFilters((prev) => !prev)}
-                className="relative w-[50vw] sm:w-[25vw] min-h-[42px] px-3 py-2 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm flex items-center flex-wrap gap-2 cursor-text focus-within:ring-2 focus-within:ring-purple-500"
+                className="relative w-[50vw] sm:w-[25vw] min-h-10.5 px-3 py-2 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm flex items-center flex-wrap gap-2 cursor-text focus-within:ring-2 focus-within:ring-purple-500"
               >
                 {selectedFilters.length > 0 ? (
                   selectedFilters.map((filter) => (
@@ -164,7 +164,7 @@ const Projects = () => {
       {/* Modal */}
       {selectedProject && (
         <div
-          className="fixed inset-0 bg-purple-600/5 flex items-center justify-center z-[999] p-2"
+          className="fixed inset-0 bg-purple-600/5 flex items-center justify-center z-999 p-2"
           onClick={() => setSelectedProject(null)}
         >
           <div

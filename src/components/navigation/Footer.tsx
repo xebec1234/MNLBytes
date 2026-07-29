@@ -1,5 +1,6 @@
 import React from "react";
-import { Github, Linkedin, Mail, Facebook } from "lucide-react";
+import { Mail } from "lucide-react";
+import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
         innovations? Feel free to reach out—let’s keep the conversation going.
       </p>
       <a
-        href="mailto:manueljosepera487@gmail.com"
+        href="mailto:pera.manueljose.dev@gmail.com"
         className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-300 
                    hover:bg-gray-100 transition"
       >
@@ -27,7 +28,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:text-black transition"
           >
-            <Github size={22} />
+            <FaGithub size={22} />
           </a>
           <a
             href="https://www.linkedin.com/in/manuel-jose-pera-896894339"
@@ -35,7 +36,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:text-[#0077b5] transition"
           >
-            <Linkedin size={22} />
+            <FaLinkedin size={22} />
           </a>
           <a
             href="https://web.facebook.com/manuel.locco.7"
@@ -43,7 +44,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:text-[#0077b5] transition"
           >
-            <Facebook size={22} />
+            <FaFacebook size={22} />
           </a>
         </div>
 

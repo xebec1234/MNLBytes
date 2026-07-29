@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import NavBar from "@/components/navigation/NavBar";
+import ModeSwitch from "@/components/navigation/ModeSwitch";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
   title: "MNLBytes",
   description: "Manuel's Portfolio",
   icons: {
-    icon: "/favicon.svg", 
+    icon: "/favicon.svg",
   },
 };
 
@@ -25,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable}`}>
-        <main>{children}</main>
+        <NavBar />
+        <ModeSwitch />
+        {children}
       </body>
     </html>
   );

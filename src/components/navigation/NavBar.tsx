@@ -1,25 +1,52 @@
+// src/components/navigation/NavBar.tsx
 "use client";
 
 import NavLink from "./NavLink";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
+const seLinks = [
+  { href: "#go", label: "Go" },
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Project" },
+  { href: "#contact", label: "Contact" },
+];
+
+const vaLinks = [
+  { href: "#va-go", label: "Home" },
+  { href: "#va-about", label: "About" },
+  { href: "#va-tools", label: "Tools" },
+  { href: "#contact", label: "Contact" },
+];
+
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isVA = pathname.startsWith("/va");
+  const links = isVA ? vaLinks : seLinks;
+
   return (
-    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%] bg-white/30 backdrop-blur-md shadow-lg rounded-2xl px-8 py-3 z-50">
+    <nav
+      className={`fixed top-6 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%]
+      backdrop-blur-md shadow-lg rounded-2xl px-8 py-3 z-50 transition-colors duration-300
+      ${isVA ? "bg-teal-50/40" : "bg-white/30"}`}
+    >
       <div className="flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-violet-700">
-          MNLBytes
+        <Link
+          href={isVA ? "/va" : "/"}
+          className={"text-xl font-bold text-violet-700"}
+        >
+          MNLBytes{isVA ? " · VA" : ""}
         </Link>
 
         <div className="hidden md:flex space-x-10 font-medium">
-          <NavLink href="#go">Go</NavLink>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href="#projects">Project</NavLink>
-          {/* <NavLink href="/certificates">Certificates</NavLink> */}
-          <NavLink href="#contact">Contact</NavLink>
+          {links.map((link) => (
+            <NavLink key={link.href} href={link.href}>
+              {link.label}
+            </NavLink>
+          ))}
         </div>
 
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -33,11 +60,11 @@ export default function NavBar() {
         }`}
       >
         <div className="flex flex-col space-y-4 font-medium">
-          <NavLink href="#go">Home</NavLink>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href="#projects">Project</NavLink>
-          {/* <NavLink href="/certificates">Certificates</NavLink> */}
-          <NavLink href="#contact">Contact</NavLink>
+          {links.map((link) => (
+            <NavLink key={link.href} href={link.href}>
+              {link.label}
+            </NavLink>
+          ))}
         </div>
       </div>
     </nav>
