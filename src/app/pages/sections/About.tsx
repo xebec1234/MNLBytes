@@ -21,7 +21,8 @@ const desktopSkills = [
 const webSkills = [
   { name: "Laravel", level: 5 },
   { name: "Next.js", level: 6 },
-  { name: "React", level: 5 },
+  { name: "Vite", level: 7 },
+  { name: "React", level: 7 },
 ];
 
 const databaseSkills = [

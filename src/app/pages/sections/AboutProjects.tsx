@@ -51,7 +51,7 @@ const AboutProjects = () => {
             and ready for decision-making.
           </p>
           <p className="mt-4 leading-relaxed">
-            TechStack: Nextjs, Typescript, Tailwind, Prisma, And NeonDB
+            TechStack: Vite, Typescript, Tailwind, Express, Prisma, Postgresql, And AWS
           </p>
           <div className="mt-6 flex items-center gap-4">
             <p className="text-sm text-gray-600">Private Company</p>

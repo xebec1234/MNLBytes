@@ -18,7 +18,7 @@ const Projects = () => {
   const filteredProjects = allProjects.filter((project) =>
     selectedFilters.length === 0
       ? true
-      : selectedFilters.every((f) => project.genres.includes(f))
+      : selectedFilters.every((f) => project.genres.includes(f)),
   );
 
   const removeFilter = (filter: string) => {
@@ -35,7 +35,7 @@ const Projects = () => {
     setCurrentImageIndex(
       (prev) =>
         (prev - 1 + selectedProject.images.length) %
-        selectedProject.images.length
+        selectedProject.images.length,
     );
   };
 
@@ -216,7 +216,7 @@ const Projects = () => {
             </div>
 
             {/* Description */}
-            <div className="p-5 overflow-y-auto max-h-[40vh]">
+            <div className="p-5 overflow-y-auto max-h-[40vh] custom-scroll">
               <h3 className="text-lg font-semibold text-gray-800">
                 {selectedProject.name}
               </h3>

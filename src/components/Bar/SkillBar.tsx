@@ -38,7 +38,7 @@ export default function SkillBar({ name, level }: SkillBarProps) {
       </div>
       <div className="w-full h-2 rounded-full bg-gray-200 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-[#A855F7] to-[#8300FF] rounded-full transition-all duration-1000 ease-out"
+          className="h-full bg-linear-to-r from-[#A855F7] to-[#8300FF] rounded-full transition-all duration-1000 ease-out"
           style={{
             width: inView ? `${(level / 10) * 100}%` : "0%",
           }}

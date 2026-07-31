@@ -10,7 +10,7 @@ export const allProjects: Project[] = [
   {
     id: 1,
     name: "Java Condition Monitoring",
-    genres: ["Web App", "Next.js", "Typescript"],
+    genres: ["Web App", "Vite", "React", "Typescript"],
     images: ["/projects/javacore-nextjs.png"],
     description:
       "A machine health monitoring dashboard built with Next.js and TypeScript. Automates report generation for mechanical engineers.",
@@ -88,5 +88,26 @@ export const allProjects: Project[] = [
     ],
     description:
       "Social App for the Anime fans community where they can connect, debate storylines, and even trash-talk each other in a fun way — like arguing whether Sasuke is weak or not. The app brings together anime fans to chat, and build a community around their favorite shows.",
+  },
+  {
+    id: 7,
+    name: "Darejar",
+    genres: ["Mobile App", "Flutter", "Laravel"],
+    images: [
+      "/projects/datejar/datejar3.png",
+      "/projects/datejar/datejar1.png",
+      "/projects/datejar/datejar2.png",
+      "/projects/datejar/datejar4.png",
+      "/projects/datejar/datejar5.png",
+    ],
+    description: `A collaborative savings tracker for couples that helps plan and monitor shared goals like dates or trips. It automatically splits the target budget between both partners and tracks their savings progress—without storing or transferring real money.
+      ✨ Features:
+      ✅ Shared savings goals
+      ✅ Automatic 50/50 budget split
+      ✅ Daily & weekly savings targets
+      ✅ Individual & combined savings tracking
+      ✅ In-app real-time chat
+      ✅ Calendar with photo memories
+      🔜 AI date & savings planner (Coming soon...)`,
   },
 ];
